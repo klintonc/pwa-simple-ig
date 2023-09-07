@@ -1,0 +1,22 @@
+{
+  "name": "pwa-simple-ig",
+  "version": "1.0.0",
+  "description": "A simple Instagram-like Progressive Web App.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "keywords": [
+    "pwa",
+    "progressive",
+    "web",
+    "app",
+    "complete",
+    "tutorial"
+  ],
+  "author": "klintonc",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
