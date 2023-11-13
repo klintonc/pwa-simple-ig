@@ -1,12 +1,14 @@
+importScripts('/src/js/config.js');
 importScripts('/src/js/idb.js');
 importScripts('/src/js/utility.js');
 
-var CACHE_STATIC_NAME = 'static-v32';
+var CACHE_STATIC_NAME = 'static-v33';
 var CACHE_DYNAMIC_NAME = 'dynamic-v3';
 var STATIC_FILES = [
   '/',
   '/index.html',
   '/offline.html',
+  '/src/js/config.js',
   '/src/js/app.js',
   '/src/js/feed.js',
   '/src/js/idb.js',
@@ -72,8 +74,7 @@ function isInArray(string, array) {
 }
 
 self.addEventListener('fetch', function (event) {
-  var url =
-    'https://your-project-id-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json';
+  var url = FIREBASE_DB_URL + '/posts.json';
   if (event.request.url.indexOf(url) > -1) {
     event.respondWith(
       fetch(event.request).then(function (res) {
@@ -189,7 +190,7 @@ self.addEventListener('sync', (event) => {
           postData.append('location', dt.location);
           postData.append('file', dt.picture, dt.id + '.png');
 
-          fetch('http://localhost:4000', {
+          fetch(API_URL, {
             method: 'POST',
             body: postData,
           })

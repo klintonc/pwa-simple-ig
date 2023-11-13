@@ -156,8 +156,7 @@ const updateUI = (data) => {
   }
 };
 
-var url =
-  'https://your-project-id-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json';
+var url = FIREBASE_DB_URL + '/posts.json';
 var networkDataReceived = false;
 
 fetch(url)
@@ -194,7 +193,7 @@ const sendData = () => {
   postData.append('location', locationInput.value);
   postData.append('file', picture, id + '.png');
 
-  fetch('http://localhost:4000', {
+  fetch(API_URL, {
     method: 'POST',
 
     body: postData,

@@ -71,8 +71,7 @@ function configurePushSub() {
     .then((sub) => {
       if (sub === null) {
         // Create a new subscription
-        const vapidPublicKey =
-          'YOUR_VAPID_PUBLIC_KEY';
+        const vapidPublicKey = VAPID_PUBLIC_KEY;
         const convertedVapidPublicKey = urlBase64ToUnit8Array(vapidPublicKey);
         return reg.pushManager.subscribe({
           userVisibleOnly: true,
@@ -84,7 +83,7 @@ function configurePushSub() {
     })
     .then((newSub) => {
       return fetch(
-        'https://your-project-id-default-rtdb.asia-southeast1.firebasedatabase.app/subscription.json',
+        FIREBASE_DB_URL + '/subscription.json',
         {
           method: 'POST',
           headers: {
