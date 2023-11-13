@@ -4,6 +4,8 @@ A simple Instagram-like Progressive Web App. Take a photo with the camera, add a
 
 > **Note:** uploading the photo itself to storage is not implemented yet. New posts are saved with their title and location and shown with a sample image.
 
+<img src="./docs/screenshots/home.jpg" alt="Feed with sample posts" width="300" />
+
 ## Features
 
 - **Installable** with a web app manifest and app icons
